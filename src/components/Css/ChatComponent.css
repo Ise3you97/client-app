@@ -19,8 +19,6 @@
     flex-direction: column;
     text-align: start;
     margin-bottom: 20px;
-    margin-top: 50px;
-
 }
 
 .prompt-box, .response-box {
@@ -29,9 +27,9 @@
     align-items: start;
     padding: 15px;
     border-radius: 8px;
-    margin-bottom: 10px;
     max-width: 60%;
     word-wrap: break-word;
+    
 }
 
 .options {
@@ -63,6 +61,7 @@
 .prompt-box {
     align-self: flex-start;
     margin-left: 60px;
+    
     margin-bottom: -65px;
     background-color: #ccc;
     border-radius: 15px;
@@ -70,6 +69,7 @@
 
 .response-box {
     align-self: flex-end;
+    padding-top: 60px;
 }
 
 /* Avatar */

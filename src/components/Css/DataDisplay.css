@@ -5,12 +5,12 @@
     flex-direction: column; 
     align-items: flex-start; 
     border-radius: 10px; 
-    max-width: 600px; 
+    max-width: 90%; /* Cambiar a 90% para que se ajuste al tamaño de la pantalla */
     margin: 20px auto; 
 }
 
 .data-display-container h1 {
-    font-size: 28px; 
+    font-size: 2rem; /* Usar unidades relativas */
     margin-bottom: 15px;
     color: #333; 
     text-align: center; 
@@ -35,6 +35,7 @@
     list-style-type: none; 
     padding: 0;
     margin: 0; 
+    width: 100%; /* Asegurar que la lista use el 100% del contenedor */
 }
 
 .data-display-container li {
@@ -50,4 +51,33 @@
 .data-display-container li:hover {
     transform: scale(1.02); 
     border-color: #007bff; 
+}
+
+/* Media Queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .data-display-container {
+        padding: 15px; /* Reducir el padding en pantallas más pequeñas */
+    }
+
+    .data-display-container h1 {
+        font-size: 1.8rem; /* Ajustar el tamaño de fuente */
+    }
+
+    .close-button {
+        padding: 6px 10px; /* Ajustar el tamaño del botón */
+    }
+
+    .data-display-container li {
+        padding: 12px; /* Ajustar el padding de los elementos de la lista */
+    }
+}
+
+@media (max-width: 480px) {
+    .data-display-container h1 {
+        font-size: 1.5rem; /* Ajustar aún más el tamaño de fuente */
+    }
+
+    .close-button {
+        width: 100%; /* Hacer que el botón ocupe el ancho completo */
+    }
 }

@@ -2,8 +2,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Css/ChatComponent.css'; // Estilos CSS personalizados
-import UsernameForm from './UsernameForm';
-
 
 interface ChatEntry {
     prompt: string;
@@ -26,13 +24,6 @@ const ChatComponent: React.FC = () => {
         try {
             const res = await axios.post('http://localhost:5000/api/obtener-respuesta', { prompt });
             const response = res.data.respuesta;
-            
-            const endTime = new Date(); // Marca el tiempo de fin
-            const timestamp = endTime.toISOString(); // Genera el timestamp ISO 8601
-
-            // Muestra el tiempo de respuesta y la respuesta en la consola
-            console.log(`Timestamp de respuesta: ${timestamp}`);
-            console.log(`Respuesta: ${response}`);
 
             // Agregar el nuevo prompt y respuesta al historial
             setChatHistory((prevHistory) => [...prevHistory, { prompt, response }]);
@@ -45,30 +36,25 @@ const ChatComponent: React.FC = () => {
 
     return (
         <div className="chat-container">
-            <UsernameForm/>
             <h1>Chat con GPT</h1>
-
+            
             {/* Mostrar el historial de prompts y respuestas */}
             <div className="chat-history">
                 {chatHistory.map((entry, index) => (
                     <div key={index} className="chat-entry">
                         <div className="prompt-box">
-                            <div className="avatar avatar-prompt">
-                                <h2 className='avatar-h2'>K</h2>
-                            </div> {/* Círculo marrón para prompt */}
+                            <div className="avatar avatar-prompt"></div> {/* Círculo marrón para prompt */}
                             <p>{entry.prompt}</p>
                         </div>
                         <div className="response-box">
                             <p>{entry.response}</p>
-                            <div className="avatar avatar-response">
-                            <h2 className='avatar-h2'>B</h2>
-                            </div> {/* Círculo marrón para respuesta */}
+                            <div className="avatar avatar-response"></div> {/* Círculo marrón para respuesta */}
                         </div>
                         <hr />
                     </div>
                 ))}
             </div>
-
+            
             {error && <div style={{ color: 'red' }}>{error}</div>}
 
             {/* Formulario de entrada y botón */}

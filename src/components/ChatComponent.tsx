@@ -26,6 +26,13 @@ const ChatComponent: React.FC = () => {
         try {
             const res = await axios.post('http://localhost:5000/api/obtener-respuesta', { prompt });
             const response = res.data.respuesta;
+            
+            const endTime = new Date(); // Marca el tiempo de fin
+            const timestamp = endTime.toISOString(); // Genera el timestamp ISO 8601
+
+            // Muestra el tiempo de respuesta y la respuesta en la consola
+            console.log(`Timestamp de respuesta: ${timestamp}`);
+            console.log(`Respuesta: ${response}`);
 
             // Agregar el nuevo prompt y respuesta al historial
             setChatHistory((prevHistory) => [...prevHistory, { prompt, response }]);

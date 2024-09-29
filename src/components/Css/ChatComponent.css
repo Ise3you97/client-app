@@ -1,8 +1,9 @@
-/* Estilos generales */
+
+
 .chat-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 90vh;
     padding: 10px;
 }
 
@@ -10,6 +11,7 @@
     flex-grow: 1;
     overflow-y: auto;
     margin-bottom: 10px;
+
 }
 
 .chat-entry {
@@ -17,11 +19,14 @@
     flex-direction: column;
     text-align: start;
     margin-bottom: 20px;
+    margin-top: 50px;
+
 }
 
 .prompt-box, .response-box {
     display: flex;
-    align-items: center;
+    position: relative;
+    align-items: start;
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -29,9 +34,38 @@
     word-wrap: break-word;
 }
 
+.options {
+    width: 30px;  /* Fijar el tamaño del avatar */
+    height: 30px;
+    border-radius: 50%;    
+    background-color: #929090; /* Marrón para el avatar del prompt */
+    position: absolute; /* Posicionar absolutamente dentro del contenedor */
+    top: -8px; /* Distancia desde la parte superior del contenedor */
+    right: -8px; /* Distancia desde la parte derecha del contenedor */
+    display: none;
+
+}
+.bi {
+    position: absolute; /* Mantener posición absoluta */
+    top: 50%; /* Mover al 50% desde la parte superior */
+    left: 50%; /* Mover al 50% desde la izquierda */
+    transform: translate(-50%, -50%); /* Ajustar el icono hacia arriba y hacia la izquierda para centrarlo */
+    display: flex; /* Usar flexbox para centrar si se necesita */
+    align-items: center; /* Alinear verticalmente en el centro */
+    justify-content: center; /* Alinear horizontalmente en el centro */
+}
+
+.prompt-box:hover .options{
+    display: block;
+}
+
 /* Estilos para prompt y response box */
 .prompt-box {
     align-self: flex-start;
+    margin-left: 60px;
+    margin-bottom: -65px;
+    background-color: #ccc;
+    border-radius: 15px;
 }
 
 .response-box {
@@ -40,8 +74,8 @@
 
 /* Avatar */
 .avatar {
-    width: 50px;  /* Fijar el tamaño del avatar */
-    height: 50px;
+    width: 40px;  /* Fijar el tamaño del avatar */
+    height: 40px;
     border-radius: 50%;
     flex-shrink: 0; /* Evita que el avatar se reduzca */
     margin-left: 0;
@@ -52,7 +86,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 10px;
+    height: 0px;
     color: #ffffff;
 }
 

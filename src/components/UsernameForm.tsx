@@ -1,7 +1,12 @@
 // src/components/UsernameForm.tsx
 import React, { useState } from 'react';
+import './Css/UsernameForm.css'; // Importar el archivo CSS
 
-const UsernameForm: React.FC = () => {
+interface UsernameFormProps {
+    onUsernameSubmit: (username: string) => void;
+}
+
+const UsernameForm: React.FC<UsernameFormProps> = ({ onUsernameSubmit }) => {
     const [username, setUsername] = useState<string>('');
     const [error, setError] = useState<string | null>(null);
 
@@ -11,29 +16,30 @@ const UsernameForm: React.FC = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (!username) {
+        if (username.trim() === '') {
             setError('El nombre de usuario es obligatorio');
         } else {
             setError(null);
-            console.log('Nombre de usuario ingresado:', username);
-            // Aquí puedes agregar cualquier lógica adicional después del ingreso del nombre de usuario.
+            onUsernameSubmit(username);
         }
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Nombre de Usuario:</label>
-            <input
-                type="text"
-                id="username"
-                value={username}
-                onChange={handleUsernameChange}
-                placeholder="Ingresa tu nombre de usuario"
-                required
-            />
-            <button type="submit">Enviar</button>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-        </form>
+        <div className="username-form-container">
+            <form className="username-form" onSubmit={handleSubmit}>
+                <label htmlFor="username">Nombre de Usuario</label>
+                <input
+                    type="text"
+                    id="username"
+                    value={username}
+                    onChange={handleUsernameChange}
+                    placeholder="Ingresa tu nombre de usuario"
+                    required
+                />
+                <button type="submit">Iniciar Chat</button>
+                {error && <p>{error}</p>}
+            </form>
+        </div>
     );
 };
 

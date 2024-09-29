@@ -1,0 +1,106 @@
+/* Estilos generales */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 10px;
+}
+
+.chat-history {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.chat-entry {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-bottom: 20px;
+}
+
+.prompt-box, .response-box {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    max-width: 60%;
+    word-wrap: break-word;
+}
+
+/* Estilos para prompt y response box */
+.prompt-box {
+    align-self: flex-start;
+}
+
+.response-box {
+    align-self: flex-end;
+}
+
+/* Avatar */
+.avatar {
+    width: 50px;  /* Fijar el tamaño del avatar */
+    height: 50px;
+    border-radius: 50%;
+    flex-shrink: 0; /* Evita que el avatar se reduzca */
+    margin-left: 0;
+}
+
+.avatar-h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 10px;
+    color: #ffffff;
+}
+
+/* Avatar para prompt */
+.avatar-prompt {
+    background-color: #8B4513; /* Marrón para el avatar del prompt */
+    margin-right: 10px;
+    flex-shrink: 0; /* Mantiene el tamaño del avatar fijo */
+}
+
+/* Avatar para respuesta */
+.avatar-response {
+    background-color: #A0522D; /* Marrón más oscuro para el avatar de la respuesta */
+    margin-left: 10px; /* Ajuste a la derecha del texto */
+    flex-shrink: 0; /* Mantiene el tamaño del avatar fijo */
+}
+
+/* Chat form */
+.chat-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    border-top: 1px solid #ccc;
+}
+
+.chat-form input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.chat-form button {
+    width: 15%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.chat-form button:hover {
+    background-color: #0056b3;
+}

@@ -128,3 +128,16 @@
 .chat-form button:hover {
     background-color: #0056b3;
 }
+
+.blinking-cursor {
+    font-weight: 100;
+    font-size: 1.2em;
+    color: black;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}

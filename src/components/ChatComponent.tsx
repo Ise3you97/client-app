@@ -58,16 +58,16 @@ const ChatComponent: React.FC = () => {
         }
 
         try {
-            // Add the new prompt to history with an empty response
+            // Agregar el nuevo prompt al historial con una respuesta vacía
             setChatHistory((prevHistory) => [...prevHistory, { prompt, response: '' }]);
             setPrompt('');
 
-            // Get the response from the server
+            // Obtener la respuesta del servidor
             const res = await axios.post('http://localhost:5000/api/obtener-respuesta', { prompt, speaker: username });
             const response = res.data.output;
             console.log(res.data);
 
-            // Start typing effect
+            // Iniciar el efecto de escritura
             typeText(response);
         } catch (err) {
             setError('Error al obtener la respuesta.');
@@ -75,7 +75,7 @@ const ChatComponent: React.FC = () => {
         } 
     };
 
-    // Function to show text character by character
+    // Función para mostrar texto carácter por carácter
     const typeText = (fullText: string) => {
         let index = 0;
         setDisplayedText('');
@@ -93,9 +93,8 @@ const ChatComponent: React.FC = () => {
                     updatedHistory[updatedHistory.length - 1].response = fullText;
                     return updatedHistory;
                 });
-              
             }
-        }, 10); // Adjust typing speed here (ms)
+        }, 40);
     };
 
     const handleUsernameSubmit = (username: string) => {
@@ -127,7 +126,7 @@ const ChatComponent: React.FC = () => {
                                         {username[0].toUpperCase()}
                                     </h2>
                                 </div>
-                                {/* Show Response with typing effect */}
+                                {/* Mostrar el texto con el efecto de escritura */}
                                 <div className="response-box">
                                     <p>
                                         {index === chatHistory.length - 1 && isTyping
@@ -145,8 +144,8 @@ const ChatComponent: React.FC = () => {
                             </div>
                         ))}
 
-                        {/* Condicion para conocer si no se a enviado una respuesta */}
-                        {loading && (<div >Esperando respuesta...</div>)}
+                        {/* Condición para conocer si no se ha enviado una respuesta */}
+                        {loading && (<div>Esperando respuesta...</div>)}
 
                         <div ref={lastMessageRef} />
                     </div>
@@ -159,19 +158,23 @@ const ChatComponent: React.FC = () => {
                         <input
                             type="text"
                             disabled={loading}
-                            style={{cursor: loading? 'not-allowed': 'pointer'}}
+                            style={{ cursor: loading ? 'not-allowed' : 'pointer' }}
                             value={prompt}
                             onChange={handlePromptChange}
                             placeholder="Escribe tu pregunta"
                             required
                         />
-                        <button type="submit"
-                         disabled={loading} 
-                        style={{
-                            backgroundColor: loading ? 'gray' : 'blue', 
-                            color: loading ? 'black' : 'white', 
-                            cursor: loading ? 'not-allowed' : 'pointer', 
-                        }}>Enviar</button>
+                        <button
+                            type="submit"
+                            disabled={loading} 
+                            style={{
+                                backgroundColor: loading ? 'gray' : 'blue', 
+                                color: loading ? 'black' : 'white', 
+                                cursor: loading ? 'not-allowed' : 'pointer', 
+                            }}
+                        >
+                            Enviar
+                        </button>
                     </form>
                 </>
             )}

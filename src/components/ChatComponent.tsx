@@ -72,9 +72,7 @@ const ChatComponent: React.FC = () => {
         } catch (err) {
             setError('Error al obtener la respuesta.');
             console.error(err);
-        } finally {
-            setLoading(false); // Set loading to false after response is processed
-        }
+        } 
     };
 
     // Function to show text character by character
@@ -89,12 +87,13 @@ const ChatComponent: React.FC = () => {
             if (index === fullText.length) {
                 clearInterval(typingInterval);
                 setIsTyping(false);
-                // Update the last message with the full response
+                setLoading(false); 
                 setChatHistory((prevHistory) => {
                     const updatedHistory = [...prevHistory];
                     updatedHistory[updatedHistory.length - 1].response = fullText;
                     return updatedHistory;
                 });
+              
             }
         }, 10); // Adjust typing speed here (ms)
     };

@@ -1,4 +1,3 @@
-// src/components/ChatComponent.tsx
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate
@@ -11,16 +10,19 @@ interface ChatEntry {
 }
 
 const ChatComponent: React.FC = () => {
+
     const [prompt, setPrompt] = useState<string>('');
     const [chatHistory, setChatHistory] = useState<ChatEntry[]>(() => {
         const savedHistory = localStorage.getItem('chatHistory');
         return savedHistory ? JSON.parse(savedHistory) : [];
     });
+
     const [error, setError] = useState<string | null>(null);
     const [username, setUsername] = useState<string | null>(() => {
         // Recuperar el nombre de usuario desde localStorage
         return localStorage.getItem('username') || null;
     });
+    
     const navigate = useNavigate(); // Hook para la navegación
 
     // Crear referencia para el último mensaje

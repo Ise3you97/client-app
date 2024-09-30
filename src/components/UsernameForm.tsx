@@ -1,4 +1,3 @@
-// src/components/UsernameForm.tsx
 import React, { useState } from 'react';
 import './Css/UsernameForm.css'; // Importar el archivo CSS
 
@@ -8,7 +7,6 @@ interface UsernameFormProps {
 
 const UsernameForm: React.FC<UsernameFormProps> = ({ onUsernameSubmit }) => {
     const [username, setUsername] = useState<string>('');
-    const [error, setError] = useState<string | null>(null);
 
     const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUsername(e.target.value);
@@ -17,9 +15,8 @@ const UsernameForm: React.FC<UsernameFormProps> = ({ onUsernameSubmit }) => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (username.trim() === '') {
-            setError('El nombre de usuario es obligatorio');
+            console.log('El nombre de usuario es obligatorio');
         } else {
-            setError(null);
             onUsernameSubmit(username);
         }
     };
@@ -37,7 +34,6 @@ const UsernameForm: React.FC<UsernameFormProps> = ({ onUsernameSubmit }) => {
                     required
                 />
                 <button type="submit">Iniciar Chat</button>
-                {error && <p>{error}</p>}
             </form>
         </div>
     );

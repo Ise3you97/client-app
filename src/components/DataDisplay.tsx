@@ -1,7 +1,6 @@
-// src/components/DataDisplay.tsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './Css/DataDisplay.css'; // Asegúrate de importar los estilos
+import './Css/DataDisplay.css'; 
 
 interface Prompt {
     prompt: string;

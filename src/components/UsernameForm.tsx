@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Css/UsernameForm.css'; // Importar el archivo CSS
+import './Css/UsernameForm.css'; 
 
 interface UsernameFormProps {
     onUsernameSubmit: (username: string) => void;
@@ -12,16 +12,15 @@ const UsernameForm: React.FC<UsernameFormProps> = ({ onUsernameSubmit }) => {
         setUsername(e.target.value);
     };
 
+    // Almacenar nombre de usuario
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (username.trim() === '') {
-            console.log('El nombre de usuario es obligatorio');
-        } else {
-            onUsernameSubmit(username);
-        }
+        onUsernameSubmit(username);
     };
 
+    // Inicio de HTML 
     return (
+        // Form para ingreso del nombre de usuario
         <div className="username-form-container">
             <form className="username-form" onSubmit={handleSubmit}>
                 <label htmlFor="username">Nombre de Usuario</label>

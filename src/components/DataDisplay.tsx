@@ -12,6 +12,7 @@ const DataDisplay: React.FC = () => {
     const [prompts, setPrompts] = useState<Prompt[]>([]);
     const [error, setError] = useState<string | null>(null);
 
+    // Efecto para obtener datos almacenados 
     useEffect(() => {
         const fetchPrompts = async () => {
             try {
@@ -22,10 +23,10 @@ const DataDisplay: React.FC = () => {
                 console.error(err);
             }
         };
-
         fetchPrompts();
     }, []);
 
+    // Inicio de HTML
     return (
         <div className="data-display-container">
             <h1>Historial</h1>
@@ -33,6 +34,7 @@ const DataDisplay: React.FC = () => {
             </p>
             {error && <div style={{ color: 'red' }}>{error}</div>}
             <ul>
+                {/* Mapeo de datos */}
                 {prompts.map((entry, index) => (
                     <li key={index}>
                         <strong>{entry.speaker}:</strong> {entry.prompt} - {entry.text}

@@ -9,7 +9,6 @@
     flex-grow: 1;
     overflow-y: auto;
     margin-bottom: 10px;
-
 }
 
 .chat-entry {
@@ -27,39 +26,36 @@
     border-radius: 8px;
     max-width: 60%;
     word-wrap: break-word;
-    
 }
 
 .options {
-    width: 30px;  /* Fijar el tamaño del avatar */
+    width: 30px;
     height: 30px;
-    border-radius: 50%;    
-    background-color: #929090; /* Marrón para el avatar del prompt */
-    position: absolute; /* Posicionar absolutamente dentro del contenedor */
-    top: -8px; /* Distancia desde la parte superior del contenedor */
-    right: -8px; /* Distancia desde la parte derecha del contenedor */
+    border-radius: 50%;
+    background-color: #929090;
+    position: absolute;
+    top: -8px;
+    right: -8px;
     display: none;
-
 }
+
 .bi {
-    position: absolute; /* Mantener posición absoluta */
-    top: 50%; /* Mover al 50% desde la parte superior */
-    left: 50%; /* Mover al 50% desde la izquierda */
-    transform: translate(-50%, -50%); /* Ajustar el icono hacia arriba y hacia la izquierda para centrarlo */
-    display: flex; /* Usar flexbox para centrar si se necesita */
-    align-items: center; /* Alinear verticalmente en el centro */
-    justify-content: center; /* Alinear horizontalmente en el centro */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.prompt-box:hover .options{
+.prompt-box:hover .options {
     display: block;
 }
 
-/* Estilos para prompt y response box */
 .prompt-box {
     align-self: flex-start;
     margin-left: 60px;
-    
     margin-bottom: -65px;
     background-color: #ccc;
     border-radius: 15px;
@@ -70,12 +66,11 @@
     padding-top: 60px;
 }
 
-/* Avatar */
 .avatar {
-    width: 40px;  /* Fijar el tamaño del avatar */
+    width: 40px;
     height: 40px;
     border-radius: 50%;
-    flex-shrink: 0; /* Evita que el avatar se reduzca */
+    flex-shrink: 0;
     margin-left: 0;
 }
 
@@ -88,21 +83,18 @@
     color: #ffffff;
 }
 
-/* Avatar para prompt */
 .avatar-prompt {
-    background-color: #8B4513; /* Marrón para el avatar del prompt */
+    background-color: #8B4513;
     margin-right: 10px;
-    flex-shrink: 0; /* Mantiene el tamaño del avatar fijo */
+    flex-shrink: 0;
 }
 
-/* Avatar para respuesta */
 .avatar-response {
-    background-color: #A0522D; /* Marrón más oscuro para el avatar de la respuesta */
-    margin-left: 10px; /* Ajuste a la derecha del texto */
-    flex-shrink: 0; /* Mantiene el tamaño del avatar fijo */
+    background-color: #A0522D;
+    margin-left: 10px;
+    flex-shrink: 0;
 }
 
-/* Chat form */
 .chat-form {
     display: flex;
     justify-content: space-between;
